@@ -1,0 +1,19 @@
+name: Python Test Robot
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  test-mijn-code:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+    - name: Installeer pytest
+      run: pip install pytest
+    - name: Voer de testen uit
+      run: pytest
